@@ -2,11 +2,10 @@
 # tasks file for opdk-setup-os-pg
 
 - name: Update kernel.sem for postgres
-  lineinfile:
-    dest: /etc/sysctl.conf
-    line: 'kernel.sem = {{ apigee_kernel_sem }}'
+  sysctl:
+    name: kernel.sem
+    value: '{{ apigee_kernel_sem }}'
     state: present
-    backup: yes
 
 - name: Update limits.conf
   copy:
