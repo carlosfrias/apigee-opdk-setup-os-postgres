@@ -6,6 +6,8 @@
     name: kernel.sem
     value: '{{ apigee_kernel_sem }}'
     state: present
+  tags:
+  - sysctl
 
 - name: Update limits.conf
   copy:
@@ -14,3 +16,4 @@
     owner: root
     group: root
     mode: 0644
+
