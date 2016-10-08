@@ -7,7 +7,7 @@
     value: '{{ apigee_kernel_sem }}'
     state: present
   tags:
-  - sysctl
+  - os_tuning
 
 - name: Update limits.conf
   copy:
@@ -16,4 +16,5 @@
     owner: root
     group: root
     mode: 0644
-
+  tags:
+  - os_tuning
