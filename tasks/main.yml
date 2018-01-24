@@ -2,19 +2,19 @@
 # tasks file for apigee-opdk-setup-os-pg
 
 - name: Update kernel.sem for postgres
+  become: yes
   sysctl:
     name: kernel.sem
     value: '{{ apigee_kernel_sem }}'
     state: present
-  tags:
-  - os_tuning
+  tags: ['os-tuning']
 
 - name: Update limits.conf
+  become: yes
   copy:
     src: apigee-pg.limits.conf
     dest: /etc/security/limits.d/apigee-pg.limits.conf
     owner: root
     group: root
     mode: 0644
-  tags:
-  - os_tuning
+  tags: ['os-tuning']
