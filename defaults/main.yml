@@ -1,3 +1,6 @@
 ---
 # defaults file for apigee-opdk-setup-os-pg
 apigee_kernel_sem: '500 32000 32 1024'
+
+sysctl_pg:
+- { name: 'kernel.sem', value: "{{ apigee_kernel_sem }}" }
